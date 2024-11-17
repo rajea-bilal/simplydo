@@ -11,7 +11,7 @@ const DatePicker = ({ dueDate, setDueDate }) => {
   };
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-[1.2rem] text-[#353c40] font-bold">
+      <label className="text-[1.2rem] text-[#384456] font-bold">
         Due Date & Time:
       </label>
       <ReactDatePicker

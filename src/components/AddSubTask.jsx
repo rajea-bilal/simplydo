@@ -53,7 +53,7 @@ const AddSubTask = ({ subtaskArray, setSubtaskArray }) => {
 
   return (
     <section className="">
-      <h3 className="block mb-2 font-bold text-[1.2rem] text-[#353c40]">
+      <h3 className="block mb-2 font-bold text-[1.2rem] text-[#384456]">
         Add subtasks
       </h3>
 
@@ -67,7 +67,7 @@ const AddSubTask = ({ subtaskArray, setSubtaskArray }) => {
         />
 
         <Button
-          className="bg-[#85959f] hover:bg-[#738691]"
+          className="bg-[hsl(216,49%,70%)] hover:bg-[#7189ad]"
           onClick={handleAddSubtask}
         >
           <Plus

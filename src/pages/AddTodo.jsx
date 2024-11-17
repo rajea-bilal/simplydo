@@ -129,7 +129,7 @@ const AddTodo = () => {
         {/* back btn */}
         <Button
           onClick={handleBackBtn}
-          className="px-4 py-6 bg-[#738691] hover:bg-[#5d717d]"
+          className="px-4 py-6 bg-[hsl(216,49%,70%)] hover:bg-[#7189ad]"
         >
           <ArrowLeft
             style={{ width: '24px', height: '24px', color: 'inherit' }}
@@ -137,7 +137,7 @@ const AddTodo = () => {
         </Button>
 
         {/* page title */}
-        <h2 className="flex-1 text-center text-[#353c40] text-4xl font-bold">
+        <h2 className="flex-1 text-center text-[#384456] text-4xl font-bold">
           Add New to do
         </h2>
       </div>
@@ -154,7 +154,7 @@ const AddTodo = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="block mb-2 font-bold text-[1.2rem] text-[#353c40]">
+                <FormLabel className="block mb-2 font-bold text-[1.2rem] text-[#384456]">
                   Task name
                 </FormLabel>
                 <FormControl>
@@ -176,7 +176,7 @@ const AddTodo = () => {
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="block mb-2 font-bold text-[1.2rem] text-[#353c40]">
+                <FormLabel className="block mb-2 font-bold text-[1.2rem] text-[#384456]">
                   Description
                 </FormLabel>
                 <FormControl>
@@ -197,7 +197,7 @@ const AddTodo = () => {
 
           {/* Priority feature */}
           <FormItem>
-            <FormLabel className="font-bold text-[1.2rem] text-[#353c40]">
+            <FormLabel className="font-bold text-[1.2rem] text-[#384456]">
               Select Priority Level
             </FormLabel>
             <PriorityFeature
@@ -208,7 +208,7 @@ const AddTodo = () => {
 
           {/* Complexity feature */}
           <FormItem>
-            <FormLabel className="font-bold text-[1.2rem] text-[#353c40]">
+            <FormLabel className="font-bold text-[1.2rem] text-[#384456]">
               Select Complexity Level
             </FormLabel>
             <ComplexityFeature
@@ -225,7 +225,7 @@ const AddTodo = () => {
           />
 
           <Button
-            className="bg-[#738691] hover:bg-[#5d717d] w-full"
+            className="bg-[#7f9ac2] hover:bg-[#637897] w-full"
             type="submit"
           >
             Submit

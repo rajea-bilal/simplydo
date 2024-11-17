@@ -8,7 +8,7 @@ const PriorityFeature = ({ priorityArray, handleLevel }) => {
           onClick={() => handleLevel(option.name, option.value)}
           key={option.value}
           value={option.value}
-          className={`bg-[#ced5d9] shadow-sm cursor-pointer flex-1 flex items-center justify-center min-h-11 rounded-full hover:bg-[#aab5bc] hover:text-white ${option.selected ? 'priorityChosen' : ''}`}
+          className={`bg-[#d1ddef] shadow-sm cursor-pointer flex-1 flex items-center justify-center min-h-11 rounded-full hover:bg-[#bbcde8] hover:text-white ${option.selected ? 'priorityChosen' : ''}`}
         >
           {option.name}
         </article>
