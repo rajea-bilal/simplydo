@@ -28,7 +28,7 @@ const SearchForm = () => {
         <div className="relative rounded-md border flex border-zinc-200 items-center justify-between p-2 focus-within:border-2 focus-within:border-[hsl(348,28%,75%)] ">
           <Input
             className="w-full pl-2 py-4 bg-[#ebdde0] rounded-md border-none outline-none focus-visible:ring-0"
-            placeholder="search todos..."
+            placeholder="search tasks..."
             value={searchInputVal}
             onChange={handleChange}
           />

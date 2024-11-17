@@ -21,7 +21,7 @@ const SortFeature = () => {
       <SelectTrigger className="w-[190px] focus:bg-[#f0e7e9] focus:border-[#eadde0] focus:ring focus:ring-[#d0bcc1]">
         <SelectValue placeholder="Sort" />
       </SelectTrigger>
-      <SelectContent className="border border-black">
+      <SelectContent>
         <div className="flex flex-col gap-1">
           <article className="flex gap-2">
             <SelectItem value="aToZ" className="cursor-pointer ">
