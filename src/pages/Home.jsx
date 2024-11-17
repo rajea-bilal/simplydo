@@ -60,7 +60,7 @@ const Home = () => {
       <header className="rounded-md flex flex-col gap-2 justify-center max-w-3xl mx-auto mt-4 p-4">
         <div className="flex justify-center gap-6">
           <Button
-            className="text-lg py-6 bg-[#738691] hover:bg-[#5d717d] font-semibold"
+            className="text-lg py-6 bg-[hsl(216,49%,70%)] hover:bg-[#7189ad] font-semibold"
             onClick={handleAddTodo}
           >
             <Plus style={{ width: '24px', height: '24px', color: 'inherit' }} />
@@ -70,7 +70,7 @@ const Home = () => {
           <Dialog>
             <DialogTrigger
               onClick={handlePowerMode}
-              className="flex gap-2 items-center bg-[#738691] font-semibold hover:bg-[#5d717d] text-lg p-2 px-4 text-stone-50 rounded-md"
+              className="flex gap-2 items-center bg-[hsl(216,49%,70%)] hover:bg-[#7189ad] font-semibold text-lg p-2 px-4 text-stone-50 rounded-md"
             >
               {' '}
               <CirclePower
