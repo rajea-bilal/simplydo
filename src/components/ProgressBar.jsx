@@ -38,7 +38,7 @@ export function ProgressBar({ subtasks }) {
   ];
 
   return (
-    <Card className="flex shadow-none border-none">
+    <Card className={`flex shadow-none border-none rounded-full`}>
       <CardContent className="p-0 m-0">
         <ChartContainer
           config={chartConfig}

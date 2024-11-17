@@ -124,7 +124,7 @@ const AddTodo = () => {
   };
 
   return (
-    <section className="rounded-md flex flex-col flex-wrap gap-10 max-w-xl mx-auto mt-10 mb-10 w-full">
+    <section className="rounded-md flex flex-col flex-wrap gap-10 max-w-sm md:max-w-md lg:max-w-xl p-3 mx-auto mt-10 mb-10 w-full">
       <div className="flex justify-center items-center w-full">
         {/* back btn */}
         <Button

@@ -19,6 +19,7 @@ import {
   Microscope,
   Calendar,
   Puzzle,
+  Sticker,
 } from 'lucide-react';
 import SortFeature from '@/components/SortFeature';
 import { Button } from '@/components/ui/button';
@@ -28,7 +29,6 @@ import { useTodo } from '@/context/todoContext';
 import { Separator } from '@/components/ui/separator';
 
 const Home = () => {
-  const [loadTodos, setLoadTodos] = useState();
   const [powerTodoItem, setPowerTodoItem] = useState();
   const { todoArray } = useTodo();
   const navigate = useNavigate();
@@ -198,7 +198,15 @@ const Home = () => {
       </header>
 
       <main className="h-full py-4 px-6">
-        <DisplayTodos />
+        {todoArray?.length > 0 && <DisplayTodos />}
+        {todoArray?.length === 0 && (
+          <div className="text-center font-semibold text-[#98b3dc] flex flex-col gap-4 items-center justify-center">
+            <Sticker className="w-16 h-16 stroke-[#afc4e4]" />
+            <p className="text-xl">
+              Start small, think big—your first task awaits...
+            </p>
+          </div>
+        )}
       </main>
     </div>
   );

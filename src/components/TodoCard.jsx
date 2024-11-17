@@ -84,7 +84,7 @@ const TodoCard = ({
   // hsla(204,24%,68%,60%)
   return (
     <Card
-      className={` bg-white shadow-lg hover:ring-4 hover:ring-[hsl(328,10%,70%)] transition duration-30`}
+      className={` bg-white ${completed ? 'bg-[#dde6f3]' : 'bg-white'} shadow-lg hover:ring-4 hover:ring-[hsl(328,10%,70%)] transition duration-30`}
     >
       <CardHeader
         className={`${pinned ? 'bg-[hsl(137,35%,72%)]' : ''} flex justify-between p-4 rounded-tl-lg rounded-tr-lg `}
