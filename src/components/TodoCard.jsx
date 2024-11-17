@@ -84,15 +84,15 @@ const TodoCard = ({
   // hsla(204,24%,68%,60%)
   return (
     <Card
-      className={` bg-white ${completed ? 'bg-[#dde6f3]' : 'bg-white'} shadow-lg hover:ring-4 hover:ring-[hsl(328,10%,70%)] transition duration-30`}
+      className={` bg-white ${completed ? 'bg-[#dde6f3]' : 'bg-white'} shadow-lg hover:ring-4 hover:ring-[#ddc3c8] transition duration-30`}
     >
       <CardHeader
-        className={`${pinned ? 'bg-[hsl(137,35%,72%)]' : ''} flex justify-between p-4 rounded-tl-lg rounded-tr-lg `}
+        className={`${pinned ? 'bg-[#bbcde8]' : ''} flex justify-between p-4 rounded-tl-lg rounded-tr-lg `}
       >
         <div className="flex-1">
-          <CardTitle className="text-lg text-[#434b50]">{name}</CardTitle>
+          <CardTitle className="text-lg text-[#47566c]">{name}</CardTitle>
           {description && (
-            <CardDescription className="text-[#6a777f]">
+            <CardDescription className="text-[#556782]">
               {description}
             </CardDescription>
           )}
@@ -101,16 +101,16 @@ const TodoCard = ({
         <div className="flex gap-3 items-center">
           <Pin
             onClick={() => pinTodo(id)}
-            className={`text-stone-600 cursor-pointer ${pinned ? 'fill-[hsl(137,35%,52%)] stroke-[hsl(137,35%,42%)]' : ''} transition-all ease-in-out duration-300`}
+            className={`text-[#47566c] cursor-pointer ${pinned ? 'fill-stone-50' : ''} transition-all ease-in-out duration-300`}
           />
           <CircleCheckBig
             onClick={() => completeTask(id)}
-            className={`text-stone-600 cursor-pointer ${completed ? 'text-[hsl(137,35%,42%)]' : ''}  transition-all ease-in-out duration-300`}
+            className={`text-[#47566c] cursor-pointer ${completed ? 'text-[hsl(137,35%,42%)]' : ''}  transition-all ease-in-out duration-300`}
           />
 
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <EllipsisVertical className="text-stone-600 cursor-pointer hover:text-stone-900 transition-all ease-in-out duration-300 " />
+              <EllipsisVertical className="text-[#47566c] cursor-pointer hover:text-stone-900 transition-all ease-in-out duration-300 " />
             </DropdownMenuTrigger>
 
             <DropdownMenuContent>
@@ -186,7 +186,7 @@ const TodoCard = ({
         <div className="flex items-center">
           <div className="flex-1 flex flex-col gap-2 h-full w-full">
             <article className="flex items-center gap-2 mt-2">
-              <Calendar className="w-4 h-4 text-[#6a777f]" />
+              <Calendar className="w-4 h-4 text-[#47566c]" />
               <span className="text-md text-[#9daab2] whitespace-nowrap ">
                 Due:
               </span>
@@ -198,7 +198,7 @@ const TodoCard = ({
             </article>
 
             <article className="flex items-center gap-2">
-              <Gem className="w-4 h-4 text-[#6a777f]" />
+              <Gem className="w-4 h-4 text-[#47566c]" />
 
               {convertedPriority >= 1 && convertedPriority <= 3 && (
                 <>
@@ -228,7 +228,7 @@ const TodoCard = ({
             </article>
 
             <article className="flex items-center gap-2">
-              <Microscope className="w-4 h-4 text-[#6a777f]" />
+              <Microscope className="w-4 h-4 text-[#47566c]" />
 
               {convertedComplexity >= 1 && convertedComplexity <= 3 && (
                 <>
@@ -257,7 +257,7 @@ const TodoCard = ({
             </article>
 
             <article className="flex items-center gap-2">
-              <Puzzle className="w-4 h-4 text-[#6a777f]" />
+              <Puzzle className="w-4 h-4 text-[#47566c]" />
               <p className="text-md text-[#9daab2]">Subtasks:</p>
               <span className="text-sm text-[#434b50]">{subtasks.length}</span>
             </article>

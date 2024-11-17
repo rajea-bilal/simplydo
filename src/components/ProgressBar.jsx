@@ -33,7 +33,7 @@ export function ProgressBar({ subtasks }) {
     {
       name: 'Completion',
       value: completionPercentage,
-      fill: 'hsl(137, 34%, 62%)',
+      fill: 'hsl(216, 49%, 82%)',
     },
   ];
 

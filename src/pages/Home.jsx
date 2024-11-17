@@ -80,7 +80,7 @@ const Home = () => {
             </DialogTrigger>
             <DialogContent className="max-w-sm sm:max-w-md md:max-w-lg h-[24rem] rounded-lg ">
               <DialogHeader>
-                <DialogTitle className="text-4xl mb-2 text-[#434b50]">
+                <DialogTitle className="text-4xl mb-2 text-[#47566c]">
                   {powerTodoItem?.name}
                 </DialogTitle>
                 <DialogDescription>
@@ -95,7 +95,7 @@ const Home = () => {
 
                   <div className="flex-1 flex flex-col gap-4 h-full w-full mt-6">
                     <article className="flex items-center gap-2">
-                      <Calendar className="w-6 h-6 text-[#6a777f]" />
+                      <Calendar className="w-6 h-6 text-[#47566c]" />
                       <p className="text-lg text-[#6a777f]">Due:</p>
                       <span
                         className={`${powerTodoItem?.completed ? 'line-through' : ''} text-[1rem] text-[#434b50]`}
@@ -110,7 +110,7 @@ const Home = () => {
                     </article>
 
                     <article className="flex items-center gap-2">
-                      <Gem className="w-6 h-6 text-[#6a777f]" />
+                      <Gem className="w-6 h-6 text-[#47566c]" />
 
                       {powerTodoItem?.priorityLevel.priority >= 1 &&
                         powerTodoItem?.priorityLevel.priority <= 3 && (
@@ -143,7 +143,7 @@ const Home = () => {
                     </article>
 
                     <article className="flex items-center gap-2">
-                      <Microscope className="w-6 h-6 text-[#6a777f]" />
+                      <Microscope className="w-6 h-6 text-[#47566c]" />
 
                       {powerTodoItem?.complexityLevel.complexity >= 1 &&
                         powerTodoItem?.complexityLevel.complexity <= 3 && (
@@ -163,7 +163,7 @@ const Home = () => {
                             <p className="text-lg text-[#6a777f]">
                               Complexity:
                             </p>
-                            <span className="text-[1rem] text-[#434b50] ">
+                            <span className="text-[1rem] text-[#47566c] ">
                               Medium (
                               {powerTodoItem?.complexityLevel.complexity}/10)
                             </span>
@@ -181,7 +181,7 @@ const Home = () => {
                     </article>
 
                     <article className="flex items-center gap-2">
-                      <Puzzle className="w-6 h-6 text-[#6a777f]" />
+                      <Puzzle className="w-6 h-6 text-[#47566c]" />
                       <p className="text-lg text-[#6a777f]">Subtasks:</p>
                       <span className="text-[1rem] text-[#434b50]">
                         {powerTodoItem?.subtasks.length}
