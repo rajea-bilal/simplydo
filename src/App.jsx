@@ -6,7 +6,7 @@ import Hero from '@/components/Hero';
 import Home from './pages/Home';
 import AddTodo from './pages/AddTodo';
 import EditTodo from './pages/EditTodo';
-import SearchedTodo from './pages/SearchedTodo';
+import SearchedTodo from './pages/searchedTodo';
 import { TodoProvider } from '@/context/todoContext';
 
 function App() {
