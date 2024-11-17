@@ -69,6 +69,7 @@ const Home = () => {
 
           <Dialog>
             <DialogTrigger
+              disabled={!todoArray.length}
               onClick={handlePowerMode}
               className="flex gap-2 items-center bg-[hsl(216,49%,70%)] hover:bg-[#7189ad] font-semibold text-lg p-2 px-4 text-stone-50 rounded-md"
             >
