@@ -164,7 +164,7 @@ const TodoCard = ({
                         Cancel
                       </Button>
                       <Button
-                        className="bg-red-500 hover:bg-red-600"
+                        className="bg-[hsl(216,49%,70%)]"
                         onClick={() => {
                           removeTodo(id);
                           setIsOpen(false);
