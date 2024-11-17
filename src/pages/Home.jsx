@@ -51,7 +51,7 @@ const Home = () => {
         powerTodo = todoArray[i];
       }
     }
-    console.log(powerTodo);
+
     setPowerTodoItem(powerTodo);
   };
 
@@ -78,7 +78,7 @@ const Home = () => {
               />
               Power Mode
             </DialogTrigger>
-            <DialogContent className="sm:max-w-lg h-[24rem]  rounded-lg ">
+            <DialogContent className="max-w-sm sm:max-w-md md:max-w-lg h-[24rem] rounded-lg ">
               <DialogHeader>
                 <DialogTitle className="text-4xl mb-2 text-[#434b50]">
                   {powerTodoItem?.name}
@@ -98,7 +98,7 @@ const Home = () => {
                       <Calendar className="w-6 h-6 text-[#6a777f]" />
                       <p className="text-lg text-[#6a777f]">Due:</p>
                       <span
-                        className={`${powerTodoItem?.completed ? 'line-through' : ''} text-md text-[#434b50]`}
+                        className={`${powerTodoItem?.completed ? 'line-through' : ''} text-[1rem] text-[#434b50]`}
                       >
                         {powerTodoItem?.taskDue
                           ? format(
@@ -116,7 +116,7 @@ const Home = () => {
                         powerTodoItem?.priorityLevel.priority <= 3 && (
                           <>
                             <p className="text-lg text-[#6a777f]">Priority: </p>
-                            <span className="text-md text-[#434b50]">
+                            <span className="text-[1rem] text-[#434b50]">
                               Low ({powerTodoItem?.priorityLevel.priority}/10)
                             </span>
                           </>
@@ -126,7 +126,7 @@ const Home = () => {
                         powerTodoItem?.priorityLevel.priority <= 6 && (
                           <>
                             <p className="text-lg text-[#6a777f]">Priority:</p>
-                            <span className="text-md text-[#434b50]">
+                            <span className="text-[1rem] text-[#434b50]">
                               Medium ({powerTodoItem?.priorityLevel.priority}
                               /10)
                             </span>
@@ -135,7 +135,7 @@ const Home = () => {
                       {powerTodoItem?.priorityLevel.priority >= 7 && (
                         <>
                           <p className="text-lg text-[#6a777f]">Priority: </p>
-                          <span className="text-md text-[#434b50]">
+                          <span className="text-[1rem] text-[#434b50]">
                             High ({powerTodoItem?.priorityLevel.priority}/10)
                           </span>
                         </>
@@ -151,7 +151,7 @@ const Home = () => {
                             <p className="text-lg text-[#6a777f]">
                               Complexity:
                             </p>
-                            <span className="text-md text-[#434b50]">
+                            <span className="text-[1rem] text-[#434b50]">
                               Low ({powerTodoItem?.complexityLevel.complexity}
                               /10)
                             </span>
@@ -163,7 +163,7 @@ const Home = () => {
                             <p className="text-lg text-[#6a777f]">
                               Complexity:
                             </p>
-                            <span className="text-md text-[#434b50] ">
+                            <span className="text-[1rem] text-[#434b50] ">
                               Medium (
                               {powerTodoItem?.complexityLevel.complexity}/10)
                             </span>
@@ -172,7 +172,7 @@ const Home = () => {
                       {powerTodoItem?.complexityLevel.complexity >= 7 && (
                         <>
                           <p className="text-lg text-[#6a777f]">Complexity:</p>
-                          <span className="text-md text-[#434b50] ">
+                          <span className="text-[1rem] text-[#434b50] ">
                             High ({powerTodoItem?.complexityLevel.complexity}
                             /10)
                           </span>
@@ -183,7 +183,7 @@ const Home = () => {
                     <article className="flex items-center gap-2">
                       <Puzzle className="w-6 h-6 text-[#6a777f]" />
                       <p className="text-lg text-[#6a777f]">Subtasks:</p>
-                      <span className="text-md text-[#434b50]">
+                      <span className="text-[1rem] text-[#434b50]">
                         {powerTodoItem?.subtasks.length}
                       </span>
                     </article>

@@ -23,9 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Generated files
-package-lock.json
-*.lock
+
 
 # Assets
 src/assets/*.jpg
