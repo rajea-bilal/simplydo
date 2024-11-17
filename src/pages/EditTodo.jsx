@@ -223,7 +223,7 @@ const EditTodo = () => {
         {/* back btn */}
         <Button
           onClick={handleBackBtn}
-          className="px-4 py-6 bg-[#738691] hover:bg-[#5d717d]"
+          className="px-4 py-6 bg-[hsl(216,49%,70%)] hover:bg-[#7189ad"
         >
           <ArrowLeft
             style={{ width: '24px', height: '24px', color: 'inherit' }}
@@ -231,7 +231,7 @@ const EditTodo = () => {
         </Button>
 
         {/* page title */}
-        <h2 className="flex-1 text-center text-3xl font-bold text-[#353c40]">
+        <h2 className="flex-1 text-center text-3xl font-bold text-[#384456]">
           Add New to do
         </h2>
       </div>
@@ -248,12 +248,12 @@ const EditTodo = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="block mb-2 font-bold text-[1.2rem]">
+                <FormLabel className="block mb-2 font-bold text-[1.2rem] text-[#384456]">
                   Task name
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="placeholder:text-stone-400 text-[#353c40] font-normal"
+                    className="placeholder:text-stone-400 text-[#384456] font-normal"
                     placeholder="Enter task name..."
                     {...field}
                   />
@@ -291,7 +291,7 @@ const EditTodo = () => {
 
           {/* Priority feature */}
           <FormItem>
-            <FormLabel className="font-bold text-[1.2rem] text-[#353c40]">
+            <FormLabel className="font-bold text-[1.2rem] text-[#384456]">
               Select Priority Level
             </FormLabel>
             <PriorityFeature
@@ -302,7 +302,7 @@ const EditTodo = () => {
 
           {/* Complexity feature */}
           <FormItem>
-            <FormLabel className="font-bold text-[1.2rem] text-[#353c40]">
+            <FormLabel className="font-bold text-[1.2rem] text-[#384456]">
               Select Complexity Level
             </FormLabel>
             <ComplexityFeature
@@ -318,7 +318,10 @@ const EditTodo = () => {
             setSubtaskArray={setSubtaskArray}
           />
 
-          <Button type="submit" className="w-full">
+          <Button
+            type="submit"
+            className=" bg-[#7f9ac2] hover:bg-[#637897] w-full"
+          >
             Submit
           </Button>
         </form>
