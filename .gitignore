@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Generated files
+package-lock.json
+*.lock
+
+# Assets
+src/assets/*.jpg
+src/assets/*.png
+src/assets/*.gif
