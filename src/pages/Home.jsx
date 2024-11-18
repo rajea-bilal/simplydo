@@ -201,7 +201,7 @@ const Home = () => {
       <main className="h-full py-4 px-6">
         {todoArray?.length > 0 && <DisplayTodos />}
         {todoArray?.length === 0 && (
-          <div className="text-center font-semibold text-[#98b3dc] flex flex-col gap-4 items-center justify-center">
+          <div className="border-4 border-dashed border-[#afc4e4]/20 rounded-lg p-4 py-6 mx-auto max-w-lg text-center font-semibold text-[#98b3dc] flex flex-col gap-4 items-center justify-center mt-[4rem]">
             <Sticker className="w-16 h-16 stroke-[#afc4e4]" />
             <p className="text-xl">
               Start small, think big—your first task awaits...
