@@ -39,58 +39,13 @@ const EditTodo = () => {
   );
   const [tagArray, setTagArray] = useState(displayingTodo?.tag || []);
   const [dueDate, setDueDate] = useState(displayingTodo?.taskDue);
-  const [priorityArray, setPriorityArray] = useState([
-    {
-      name: '1',
-      value: 'priority1',
-      selected: displayingTodo?.priorityLevel?.priority === '1',
-    },
-    {
-      name: '2',
-      value: 'priority2',
-      selected: displayingTodo?.priorityLevel?.priority === '2',
-    },
-    {
-      name: '3',
-      value: 'priority3',
-      selected: displayingTodo?.priorityLevel?.priority === '3',
-    },
-    {
-      name: '4',
-      value: 'priority4',
-      selected: displayingTodo?.priorityLevel?.priority === '4',
-    },
-    {
-      name: '5',
-      value: 'priority5',
-      selected: displayingTodo?.priorityLevel?.priority === '5',
-    },
-    {
-      name: '6',
-      value: 'priority6',
-      selected: displayingTodo?.priorityLevel?.priority === '6',
-    },
-    {
-      name: '7',
-      value: 'priority7',
-      selected: displayingTodo?.priorityLevel?.priority === '7',
-    },
-    {
-      name: '8',
-      value: 'priority8',
-      selected: displayingTodo?.priorityLevel?.priority === '8',
-    },
-    {
-      name: '9',
-      value: 'priority9',
-      selected: displayingTodo?.priorityLevel?.priority === '9',
-    },
-    {
-      name: '10',
-      value: 'priority10',
-      selected: displayingTodo?.priorityLevel?.priority === '10',
-    },
-  ]);
+  const [priorityArray, setPriorityArray] = useState(
+    Array.from({ length: 10 }, (_, index) => ({
+      name: `${index + 1}`,
+      value: `priority${index + 1}`,
+      selected: false,
+    }))
+  );
   const [priorityObj, setPriorityObj] = useState({
     priority: displayingTodo.priorityLevel.priority,
     value: displayingTodo.priorityLevel.value,
@@ -101,58 +56,13 @@ const EditTodo = () => {
     value: displayingTodo.complexityLevel.value,
   });
 
-  const [complexityArray, setComplexityArray] = useState([
-    {
-      name: '1',
-      value: 'complexity1',
-      selected: displayingTodo.complexityLevel.complexity === '1',
-    },
-    {
-      name: '2',
-      value: 'complexity2',
-      selected: displayingTodo.complexityLevel.complexity === '2',
-    },
-    {
-      name: '3',
-      value: 'complexity3',
-      selected: displayingTodo.complexityLevel.complexity === '3',
-    },
-    {
-      name: '4',
-      value: 'complexity4',
-      selected: displayingTodo.complexityLevel.complexity === '4',
-    },
-    {
-      name: '5',
-      value: 'complexity5',
-      selected: displayingTodo.complexityLevel.complexity === '5',
-    },
-    {
-      name: '6',
-      value: 'complexity6',
-      selected: displayingTodo.complexityLevel.complexity === '6',
-    },
-    {
-      name: '7',
-      value: 'complexity7',
-      selected: displayingTodo.complexityLevel.complexity === '7',
-    },
-    {
-      name: '8',
-      value: 'complexity8',
-      selected: displayingTodo.complexityLevel.complexity === '8',
-    },
-    {
-      name: '9',
-      value: 'complexity9',
-      selected: displayingTodo.complexityLevel.complexity === '9',
-    },
-    {
-      name: '10',
-      value: 'complexity10',
-      selected: displayingTodo.complexityLevel.complexity === '10',
-    },
-  ]);
+  const [complexityArray, setComplexityArray] = useState(
+    Array.from({ length: 10 }, (_, index) => ({
+      name: `${index + 1}`,
+      value: `complexity${index + 1}`,
+      selected: false,
+    }))
+  );
 
   // manage the level chosen from priority and complexity
   const handleLevel = (name, value) => {

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, createContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { compareAsc, compareDesc } from 'date-fns';
 import { uid } from 'uid';
 
@@ -33,6 +33,8 @@ export const TodoProvider = ({ children }) => {
 
   // add todos
   const handleAddTasks = (todo) => {
+    const updatedOriginalTodoArray = [...originalTodoArray, todo];
+    setOriginalTodoArray(updatedOriginalTodoArray);
     const updatedTodoArray = [...todoArray, todo];
     setTodoArray((prevTodos) => [
       ...prevTodos,
@@ -41,12 +43,15 @@ export const TodoProvider = ({ children }) => {
         originalIndex: prevTodos.length,
       },
     ]);
-    console.log(todoArray);
+    console.log('Updated originalTodoArray:', updatedTodoArray);
   };
 
   //edit todos
   const handleEditTask = (id, updatedTodo) => {
     console.log('handleEditTask function ran', updatedTodo);
+    setOriginalTodoArray((prev) =>
+      prev.map((todo) => (todo.id === id ? { ...updatedTodo } : todo))
+    );
     const updatedArray = todoArray.map((todo) =>
       todo.id === id ? { ...updatedTodo } : todo
     );
@@ -61,12 +66,14 @@ export const TodoProvider = ({ children }) => {
     // organize unpinnedArray with sort method using originalIndex
     // organize state array by putting pinnedArray first and then unpinnedArray
     // set state array
-    const togglePinArray = todoArray.map((todo) =>
+    const updatedOriginalArray = originalTodoArray.map((todo) =>
       todo.id === id ? { ...todo, pinned: !todo.pinned } : todo
     );
 
-    const pinnedArray = togglePinArray.filter((todo) => todo.pinned === true);
-    const unpinnedArray = togglePinArray.filter(
+    const pinnedArray = updatedOriginalArray.filter(
+      (todo) => todo.pinned === true
+    );
+    const unpinnedArray = updatedOriginalArray.filter(
       (todo) => todo.pinned === false
     );
     const sortedUnpinnedArray = unpinnedArray.sort(
@@ -74,7 +81,7 @@ export const TodoProvider = ({ children }) => {
     );
 
     const updatedStateArray = [...pinnedArray, ...sortedUnpinnedArray];
-    setTodoArray(updatedStateArray);
+    setOriginalTodoArray(updatedStateArray);
   };
   // mark as completed
   const completeTask = (id) => {
@@ -87,6 +94,7 @@ export const TodoProvider = ({ children }) => {
   //remove todo
   const removeTodo = (id) => {
     const filteredTodo = todoArray.filter((task) => task.id !== id);
+    setOriginalTodoArray((prev) => prev.filter((todo) => todo.id !== id));
     setTodoArray(filteredTodo);
   };
 
@@ -94,13 +102,11 @@ export const TodoProvider = ({ children }) => {
   const cloneTodo = (id) => {
     // iterate through the state array, find the todo whose id matches the id provided
 
-    const grabbedTodo = todoArray.find((todo) => todo.id === id);
+    const grabbedTodo = originalTodoArray.find((todo) => todo.id === id);
 
     const clonedObject = { ...grabbedTodo, id: uid() };
-    const copiedStateArray = [...todoArray];
-    copiedStateArray.push(clonedObject);
-    console.log(copiedStateArray);
-    setTodoArray(copiedStateArray);
+    setOriginalTodoArray((prev) => [...prev, clonedObject]);
+    setTodoArray((prev) => [...prev, clonedObject]);
   };
 
   // handle Sorting functionality
@@ -167,6 +173,7 @@ export const TodoProvider = ({ children }) => {
   // handle Tagging functionality
   const getTotalTags = () => {
     const allTags = originalTodoArray.map((todoObj) => todoObj.tag).flat();
+
     setTotalTags(allTags);
   };
 
@@ -175,7 +182,7 @@ export const TodoProvider = ({ children }) => {
   }, [originalTodoArray]);
 
   const handleCheckbox = (tagname) => {
-    if (!tagname) console.log('handleCheckbox function ran', tagname);
+    if (!tagname) return;
 
     setCheckedBox((prev) =>
       prev.includes(tagname)
@@ -197,7 +204,6 @@ export const TodoProvider = ({ children }) => {
         : todoObj.tag.some((tagObj) => checkedBox.includes(tagObj.tagname))
     );
 
-    console.log('filteredArray', filteredArray);
     setTodoArray(filteredArray);
   }, [checkedBox, originalTodoArray]);
 

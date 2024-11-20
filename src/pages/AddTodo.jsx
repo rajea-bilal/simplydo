@@ -35,33 +35,24 @@ const AddTodo = () => {
   const [subtaskArray, setSubtaskArray] = useState([]);
   const [tagArray, setTagArray] = useState([]);
   const [dueDate, setDueDate] = useState('');
-  const [priorityArray, setPriorityArray] = useState([
-    { name: '1', value: 'priority1', selected: false },
-    { name: '2', value: 'priority2', selected: false },
-    { name: '3', value: 'priority3', selected: false },
-    { name: '4', value: 'priority4', selected: false },
-    { name: '5', value: 'priority5', selected: false },
-    { name: '6', value: 'priority6', selected: false },
-    { name: '7', value: 'priority7', selected: false },
-    { name: '8', value: 'priority8', selected: false },
-    { name: '9', value: 'priority9', selected: false },
-    { name: '10', value: 'priority10', selected: false },
-  ]);
+  //
+  const [priorityArray, setPriorityArray] = useState(
+    Array.from({ length: 10 }, (_, index) => ({
+      name: `${index + 1}`,
+      value: `priority${index + 1}`,
+      selected: false,
+    }))
+  );
   const [priorityObj, setPriorityObj] = useState({});
   const [complexityObj, setComplexityObj] = useState(0);
 
-  const [complexityArray, setComplexityArray] = useState([
-    { name: '1', value: 'complexity1', selected: false },
-    { name: '2', value: 'complexity2', selected: false },
-    { name: '3', value: 'complexity3', selected: false },
-    { name: '4', value: 'complexity4', selected: false },
-    { name: '5', value: 'complexity5', selected: false },
-    { name: '6', value: 'complexity6', selected: false },
-    { name: '7', value: 'complexity7', selected: false },
-    { name: '8', value: 'complexity8', selected: false },
-    { name: '9', value: 'complexity9', selected: false },
-    { name: '10', value: 'complexity10', selected: false },
-  ]);
+  const [complexityArray, setComplexityArray] = useState(
+    Array.from({ length: 10 }, (_, index) => ({
+      name: `${index + 1}`,
+      value: `complexity${index + 1}`,
+      selected: false,
+    }))
+  );
 
   // manage the level chosen from priority and complexity
   const handleLevel = (name, value) => {
