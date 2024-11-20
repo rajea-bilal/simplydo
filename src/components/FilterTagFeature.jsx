@@ -10,12 +10,9 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { useTodo } from '@/context/todoContext';
 
 const FilterTagFeature = () => {
-  const [totalTags, setTotalTags] = useState([]);
+  const { checkedBox, totalTags, handleCheckbox } = useTodo();
 
-  const { checkedBox, getTotalTags, handleCheckbox } = useTodo();
-  useEffect(() => {
-    setTotalTags(getTotalTags());
-  }, []);
+  console.log(totalTags);
 
   return (
     <div className="border border-zinc-200 w-[190px] p-1 rounded-md focus:border-[#eadde0] focus:ring focus:ring-[#d0bcc1]">

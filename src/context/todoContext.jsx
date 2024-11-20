@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext, createContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { compareAsc, compareDesc } from 'date-fns';
 import { uid } from 'uid';
 
@@ -20,6 +21,7 @@ export const TodoProvider = ({ children }) => {
   });
 
   const [checkedBox, setCheckedBox] = useState([]);
+  const [totalTags, setTotalTags] = useState([]);
 
   const saveTodosToLocalStorage = () => {
     localStorage.setItem('todos', JSON.stringify(todoArray));
@@ -164,12 +166,16 @@ export const TodoProvider = ({ children }) => {
 
   // handle Tagging functionality
   const getTotalTags = () => {
-    const allTags = todoArray.map((todoObj) => todoObj.tag).flat();
-    return allTags;
+    const allTags = originalTodoArray.map((todoObj) => todoObj.tag).flat();
+    setTotalTags(allTags);
   };
 
+  useEffect(() => {
+    getTotalTags();
+  }, [originalTodoArray]);
+
   const handleCheckbox = (tagname) => {
-    if (!tagname) return;
+    if (!tagname) console.log('handleCheckbox function ran', tagname);
 
     setCheckedBox((prev) =>
       prev.includes(tagname)
@@ -184,12 +190,14 @@ export const TodoProvider = ({ children }) => {
       return;
     }
 
+    console.log('checkedBox', checkedBox);
     const filteredArray = originalTodoArray.filter((todoObj) =>
       todoObj.tag.length === 0
-        ? false
+        ? ''
         : todoObj.tag.some((tagObj) => checkedBox.includes(tagObj.tagname))
     );
 
+    console.log('filteredArray', filteredArray);
     setTodoArray(filteredArray);
   }, [checkedBox, originalTodoArray]);
 
@@ -206,7 +214,7 @@ export const TodoProvider = ({ children }) => {
         cloneTodo,
         handleSortFunction,
         checkedBox,
-        getTotalTags,
+        totalTags,
         handleCheckbox,
       }}
     >
