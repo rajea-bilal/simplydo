@@ -75,7 +75,7 @@ const TodoCard = ({
 
   const handleEditClick = (id) => {
     console.log(id);
-    navigate(`/todo/add/${id}`);
+    navigate(`/todo/edit/${id}`);
     // user clicks on edit button, handleEditClick function fires
     // navigates back to /add/todos/:id
     // iterate over the todo array, find the todo that matches the id

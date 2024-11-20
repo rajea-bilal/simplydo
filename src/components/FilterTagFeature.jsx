@@ -12,8 +12,6 @@ import { useTodo } from '@/context/todoContext';
 const FilterTagFeature = () => {
   const { checkedBox, totalTags, handleCheckbox } = useTodo();
 
-  console.log(totalTags);
-
   return (
     <div className="border border-zinc-200 w-[190px] p-1 rounded-md focus:border-[#eadde0] focus:ring focus:ring-[#d0bcc1]">
       <DropdownMenu className="">

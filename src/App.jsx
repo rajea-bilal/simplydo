@@ -24,7 +24,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/todo/add" element={<AddTodo />} />
-              <Route path="/todo/add/:id" element={<EditTodo />} />
+              <Route path="/todo/edit/:id" element={<EditTodo />} />
               <Route path="/todo/search/" element={<SearchedTodo />} />
             </Routes>
           </motion.main>
