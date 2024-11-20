@@ -27,9 +27,11 @@ import SearchForm from '../components/SearchForm';
 import DisplayTodos from '@/components/DisplayTodos';
 import { useTodo } from '@/context/todoContext';
 import { Separator } from '@/components/ui/separator';
+import FilterTagFeature from '@/components/FilterTagFeature';
 
 const Home = () => {
   const [powerTodoItem, setPowerTodoItem] = useState();
+
   const { todoArray } = useTodo();
   const navigate = useNavigate();
 
@@ -195,7 +197,10 @@ const Home = () => {
           </Dialog>
         </div>
         <SearchForm className="w-full" />
-        <SortFeature />
+        <div className="flex gap-6">
+          <SortFeature />
+          <FilterTagFeature />
+        </div>
       </header>
 
       <main className="h-full py-4 px-6">
