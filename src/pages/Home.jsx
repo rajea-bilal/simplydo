@@ -232,7 +232,7 @@ const Home = () => {
       {todoArray?.length > 0 && (
         <Button
           onClick={deleteAllTodos}
-          className="absolute bottom-0 right-5 cursor-pointer bg-[#b38e96] hover:bg-[#b38e96]/70"
+          className="absolute bottom-0 right-5 cursor-pointer bg-[#e9ada5] hover:bg-[#d19992]"
         >
           Delete All
         </Button>
