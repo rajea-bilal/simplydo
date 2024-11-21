@@ -33,17 +33,15 @@ export const TodoProvider = ({ children }) => {
 
   // add todos
   const handleAddTasks = (todo) => {
-    const updatedOriginalTodoArray = [...originalTodoArray, todo];
+    const newTodo = {
+      ...todo,
+      originalIndex: originalTodoArray.length,
+    };
+    const updatedOriginalTodoArray = [...originalTodoArray, newTodo];
+    const updatedTodoArray = [...todoArray, newTodo];
+
     setOriginalTodoArray(updatedOriginalTodoArray);
-    const updatedTodoArray = [...todoArray, todo];
-    setTodoArray((prevTodos) => [
-      ...prevTodos,
-      {
-        ...todo,
-        originalIndex: prevTodos.length,
-      },
-    ]);
-    console.log('Updated originalTodoArray:', updatedTodoArray);
+    setTodoArray(updatedTodoArray);
   };
 
   //edit todos
@@ -73,6 +71,7 @@ export const TodoProvider = ({ children }) => {
     const pinnedArray = updatedOriginalArray.filter(
       (todo) => todo.pinned === true
     );
+
     const unpinnedArray = updatedOriginalArray.filter(
       (todo) => todo.pinned === false
     );
@@ -197,7 +196,6 @@ export const TodoProvider = ({ children }) => {
       return;
     }
 
-    console.log('checkedBox', checkedBox);
     const filteredArray = originalTodoArray.filter((todoObj) =>
       todoObj.tag.length === 0
         ? ''

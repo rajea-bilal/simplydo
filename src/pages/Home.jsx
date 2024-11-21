@@ -32,7 +32,8 @@ import FilterTagFeature from '@/components/FilterTagFeature';
 const Home = () => {
   const [powerTodoItem, setPowerTodoItem] = useState();
 
-  const { todoArray } = useTodo();
+  const { todoArray, checkedBox } = useTodo();
+
   const navigate = useNavigate();
 
   const handleAddTodo = () => {
@@ -81,7 +82,7 @@ const Home = () => {
               />
               Power Mode
             </DialogTrigger>
-            <DialogContent className="max-w-sm sm:max-w-md md:max-w-lg h-[24rem] rounded-lg ">
+            <DialogContent className="max-w-sm sm:max-w-md md:max-w-lg h-[24rem] rounded-lg bg-[#d1ddef]/90">
               <DialogHeader>
                 <DialogTitle className="text-4xl mb-2 text-[#47566c]">
                   {powerTodoItem?.name}
@@ -204,6 +205,16 @@ const Home = () => {
       </header>
 
       <main className="h-full py-4 px-6">
+        {checkedBox?.length > 0 && (
+          <h3 className="ml-[1rem] text-[#7189ad] font-semibold flex items-center gap-1">
+            Selected tags:{' '}
+            {checkedBox.map((tag) => (
+              <span className="text-[#98b3dc] border border-[#d1ddef] p-1 px-2 rounded-lg">
+                {tag}{' '}
+              </span>
+            ))}
+          </h3>
+        )}
         {todoArray?.length > 0 && <DisplayTodos />}
         {todoArray?.length === 0 && (
           <div className="border-4 border-dashed border-[#afc4e4]/20 rounded-lg p-4 py-6 mx-auto max-w-lg text-center font-semibold text-[#98b3dc] flex flex-col gap-4 items-center justify-center mt-[4rem]">
