@@ -84,7 +84,7 @@ const Home = () => {
               />
               Power Mode
             </DialogTrigger>
-            <DialogContent className="max-w-sm sm:max-w-md md:max-w-lg h-[24rem] rounded-lg bg-[#d1ddef]/90">
+            <DialogContent className="max-w-sm sm:max-w-md md:max-w-lg h-[24rem] rounded-lg bg-[#dde6f3]">
               <DialogHeader>
                 <DialogTitle className="text-4xl mb-2 text-[#47566c]">
                   <div className="flex justify-center items-center gap-2">
@@ -97,11 +97,11 @@ const Home = () => {
                   {/* This action cannot be undone. This will permanently delete
                   your account and remove your data from our servers. */}
 
-                  <Separator />
+                  <Separator className="bg-stone-100" />
                   <h2 className="text-xl text-[#6a777f] px-2 py-1">
                     {powerTodoItem?.description}
                   </h2>
-                  <Separator />
+                  <Separator className="bg-stone-100" />
 
                   <div className="flex-1 flex flex-col gap-4 h-full w-full mt-6">
                     <article className="flex items-center gap-2">
