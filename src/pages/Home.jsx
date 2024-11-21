@@ -20,6 +20,8 @@ import {
   Calendar,
   Puzzle,
   Sticker,
+  Sparkle,
+  Zap,
 } from 'lucide-react';
 import SortFeature from '@/components/SortFeature';
 import { Button } from '@/components/ui/button';
@@ -85,7 +87,11 @@ const Home = () => {
             <DialogContent className="max-w-sm sm:max-w-md md:max-w-lg h-[24rem] rounded-lg bg-[#d1ddef]/90">
               <DialogHeader>
                 <DialogTitle className="text-4xl mb-2 text-[#47566c]">
-                  {powerTodoItem?.name}
+                  <div className="flex justify-center items-center gap-2">
+                    <Zap className="w-7 h-7 fill-[#edd1d8] stroke-[#d5a8b2]" />
+                    {powerTodoItem?.name}
+                    <Zap className="w-7 h-7 fill-[#edd1d8] stroke-[#d5a8b2]" />
+                  </div>
                 </DialogTitle>
                 <DialogDescription>
                   {/* This action cannot be undone. This will permanently delete
