@@ -106,10 +106,11 @@ const AddTodo = () => {
       taskDue: dueDate,
       priorityLevel: priorityObj,
       complexityLevel: complexityObj,
+      createdAt: new Date(),
       completed: false,
       pinned: false,
     };
-    console.log(todo);
+    console.log('todo created at AddTodo', todo);
     handleAddTasks(todo);
     navigate('/');
   };

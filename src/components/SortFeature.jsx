@@ -23,6 +23,15 @@ const SortFeature = () => {
       <SelectContent>
         <div className="flex flex-col gap-1">
           <article className="flex gap-2">
+            <SelectItem
+              value="default"
+              className="cursor-pointer justify-center"
+            >
+              default
+            </SelectItem>
+          </article>
+          <Separator />
+          <article className="flex gap-2">
             <SelectItem value="aToZ" className="cursor-pointer ">
               name (A to Z)
             </SelectItem>

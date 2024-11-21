@@ -108,9 +108,22 @@ export const TodoProvider = ({ children }) => {
     setTodoArray((prev) => [...prev, clonedObject]);
   };
 
+  // delete all todos
+  const deleteAllTodos = () => {
+    console.log('delete todos running from TodoContext');
+    setTodoArray([]);
+    setOriginalTodoArray([]);
+  };
+
   // handle Sorting functionality
   const handleSortFunction = (value) => {
-    if (value === 'aToZ') {
+    if (value === 'default') {
+      const defaultOrdered = [...todoArray].sort((a, b) =>
+        compareAsc(a.createdAt, b.createdAt)
+      );
+      // console.log(defaultOrdered);
+      setTodoArray(defaultOrdered);
+    } else if (value === 'aToZ') {
       const alphabeticallyOrdered = [...todoArray].sort((a, b) =>
         a.name.localeCompare(b.name)
       );
@@ -216,6 +229,7 @@ export const TodoProvider = ({ children }) => {
         completeTask,
         removeTodo,
         cloneTodo,
+        deleteAllTodos,
         handleSortFunction,
         checkedBox,
         totalTags,

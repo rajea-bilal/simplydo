@@ -32,7 +32,7 @@ import FilterTagFeature from '@/components/FilterTagFeature';
 const Home = () => {
   const [powerTodoItem, setPowerTodoItem] = useState();
 
-  const { todoArray, checkedBox } = useTodo();
+  const { todoArray, checkedBox, deleteAllTodos } = useTodo();
 
   const navigate = useNavigate();
 
@@ -59,7 +59,7 @@ const Home = () => {
   };
 
   return (
-    <div className="mb-[5rem]">
+    <div className="mb-[5rem] relative">
       <header className="rounded-md flex flex-col gap-2 justify-center max-w-3xl mx-auto mt-4 p-4">
         <div className="flex justify-center gap-6">
           <Button
@@ -204,12 +204,15 @@ const Home = () => {
         </div>
       </header>
 
-      <main className="h-full py-4 px-6">
+      <main className="h-full py-4 px-6 mb-[3rem]">
         {checkedBox?.length > 0 && (
           <h3 className="ml-[1rem] text-[#7189ad] font-semibold flex items-center gap-1">
             Selected tags:{' '}
-            {checkedBox.map((tag) => (
-              <span className="text-[#98b3dc] border border-[#d1ddef] p-1 px-2 rounded-lg">
+            {checkedBox.map((tag, index) => (
+              <span
+                key={index}
+                className="text-[#98b3dc] border border-[#d1ddef] p-1 px-2 rounded-lg"
+              >
                 {tag}{' '}
               </span>
             ))}
@@ -225,6 +228,15 @@ const Home = () => {
           </div>
         )}
       </main>
+
+      {todoArray?.length > 0 && (
+        <Button
+          onClick={deleteAllTodos}
+          className="absolute bottom-0 right-5 cursor-pointer bg-[#b38e96] hover:bg-[#b38e96]/70"
+        >
+          Delete All
+        </Button>
+      )}
     </div>
   );
 };
