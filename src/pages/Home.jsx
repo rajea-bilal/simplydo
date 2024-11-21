@@ -42,8 +42,17 @@ const Home = () => {
     navigate('/todo/add');
   };
 
+  useEffect(() => {
+    handlePowerMode();
+  }, [todoArray]);
   const handlePowerMode = () => {
     //Can use the power mode feature which ads up the complexity and priority values and sorts the list from highest value to lowest.
+    if (!todoArray.length) {
+      setPowerTodoItem(null);
+      return;
+    }
+
+    console.log('todoArray', todoArray);
     let powerTodo;
     let highestImportance = 0;
     for (let i = 0; i < todoArray.length; i++) {
@@ -57,7 +66,7 @@ const Home = () => {
       }
     }
 
-    setPowerTodoItem(powerTodo);
+    setPowerTodoItem(powerTodo || null);
   };
 
   return (
@@ -74,7 +83,7 @@ const Home = () => {
 
           <Dialog>
             <DialogTrigger
-              disabled={!todoArray.length}
+              disabled={!todoArray.length || !powerTodoItem}
               onClick={handlePowerMode}
               className="flex gap-2 items-center bg-[hsl(216,49%,70%)] hover:bg-[#7189ad] font-semibold text-lg p-2 px-4 text-stone-50 rounded-md"
             >
@@ -106,6 +115,7 @@ const Home = () => {
                   <div className="flex-1 flex flex-col gap-4 h-full w-full mt-6">
                     <article className="flex items-center gap-2">
                       <Calendar className="w-6 h-6 text-[#47566c]" />
+
                       <p className="text-lg text-[#6a777f]">Due:</p>
                       <span
                         className={`${powerTodoItem?.completed ? 'line-through' : ''} text-[1rem] text-[#434b50]`}

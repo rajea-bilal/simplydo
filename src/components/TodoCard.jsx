@@ -200,7 +200,10 @@ const TodoCard = ({
             <article className="flex items-center gap-2">
               <Gem className="w-4 h-4 text-[#47566c]" />
               {!convertedPriority && (
-                <span className="text-sm text-[#434b50]">N/A</span>
+                <>
+                  <p className="text-md text-[#9daab2]">Priority: </p>
+                  <span className="text-sm text-[#434b50]">N/A</span>
+                </>
               )}
               {convertedPriority >= 1 && convertedPriority <= 3 && (
                 <>
@@ -232,7 +235,10 @@ const TodoCard = ({
             <article className="flex items-center gap-2">
               <Microscope className="w-4 h-4 text-[#47566c]" />
               {!convertedComplexity && (
-                <span className="text-sm text-[#434b50]">N/A</span>
+                <>
+                  <p className="text-md text-[#9daab2]">Complexity: </p>
+                  <span className="text-sm text-[#434b50]">N/A</span>
+                </>
               )}
               {convertedComplexity >= 1 && convertedComplexity <= 3 && (
                 <>
