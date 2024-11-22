@@ -86,6 +86,10 @@ export const TodoProvider = ({ children }) => {
     const updatedArray = todoArray.map((todo) =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     );
+    const updatedOriginalArray = originalTodoArray.map((todo) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    );
+    setOriginalTodoArray(updatedOriginalArray);
     setTodoArray(updatedArray);
   };
 
