@@ -36,7 +36,7 @@ const searchedTodo = () => {
   return (
     <>
       <div className="flex flex-col gap-2 justify-center max-w-3xl mx-auto p-4">
-        <h2 className="text-3xl font-bold text-[#434b50]">
+        <h2 className="text-3xl font-bold text-[#556782]">
           Search results for "{query}"
         </h2>
       </div>
@@ -44,7 +44,7 @@ const searchedTodo = () => {
       <div className="h-full w-full px-6 max-w-7xl mt-[1rem]">
         <House
           onClick={handleHomeClick}
-          className="w-11 h-11 bg-[#738691] hover:bg-[#5d717d] text-stone-100 rounded-lg p-2 cursor-pointer mb-[2rem]"
+          className="w-11 h-11 bg-[hsl(216,49%,70%)] hover:bg-[#7189ad] font-semibold text-stone-100 rounded-lg p-2 cursor-pointer mb-[2rem]"
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:mt-[3rem] max-w-7xl">
           {searchedTodo &&
@@ -52,11 +52,11 @@ const searchedTodo = () => {
         </div>
 
         {/* no results found */}
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-[4rem]">
           {searchedTodo.length === 0 && (
             <div className="flex flex-col gap-4 items-center">
-              <Meh className="h-[6rem] w-[6rem] fill-yellow-400/60 stroke-slate-700" />
-              <p className="text-xl">
+              <Meh className="h-[6rem] w-[6rem] fill-yellow-400/60 stroke-[#556782]" />
+              <p className="text-xl text-[#7189ad]">
                 No results found, please try a different term.
               </p>
             </div>
