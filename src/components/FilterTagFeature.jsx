@@ -17,12 +17,15 @@ const FilterTagFeature = () => {
       <DropdownMenu className="">
         <DropdownMenuTrigger className="w-full focus:bg-[#f0e7e9] ">
           <div className="flex items-center justify-between">
-            <span className="text-sm ml-2">Tags</span>
-            <ChevronDown className="w-4 h-4" />
+            <span className="text-sm ml-2 text-[#556782]">Tags</span>
+            <ChevronDown className="w-4 h-4 stroke-[#556782]" />
           </div>
         </DropdownMenuTrigger>
 
         <DropdownMenuContent>
+          {totalTags?.length === 0 && (
+            <span className="text-sm text-[#556782]">No tags yet...</span>
+          )}
           {totalTags?.map((tagItem) => (
             <DropdownMenuItem key={tagItem.id}>
               <Checkbox
