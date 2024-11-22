@@ -44,7 +44,7 @@ const AddTodo = () => {
     }))
   );
   const [priorityObj, setPriorityObj] = useState({});
-  const [complexityObj, setComplexityObj] = useState(0);
+  const [complexityObj, setComplexityObj] = useState({});
 
   const [complexityArray, setComplexityArray] = useState(
     Array.from({ length: 10 }, (_, index) => ({

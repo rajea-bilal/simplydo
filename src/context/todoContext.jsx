@@ -46,14 +46,13 @@ export const TodoProvider = ({ children }) => {
 
   //edit todos
   const handleEditTask = (id, updatedTodo) => {
-    console.log('handleEditTask function ran', updatedTodo);
     setOriginalTodoArray((prev) =>
       prev.map((todo) => (todo.id === id ? { ...updatedTodo } : todo))
     );
     const updatedArray = todoArray.map((todo) =>
       todo.id === id ? { ...updatedTodo } : todo
     );
-    console.log(updatedArray);
+
     setTodoArray(updatedArray);
   };
 

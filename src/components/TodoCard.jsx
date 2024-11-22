@@ -60,8 +60,8 @@ const TodoCard = ({
   const [isOpen, setIsOpen] = useState();
   const { pinTodo, completeTask, removeTodo, cloneTodo } = useTodo();
 
-  let convertedPriority = parseInt(priorityLevel.priority);
-  let convertedComplexity = parseInt(complexityLevel.complexity);
+  let convertedPriority = parseInt(priorityLevel?.priority);
+  let convertedComplexity = parseInt(complexityLevel?.complexity);
 
   // used date-fns library to format the date to appear as Sat, Nov 09 2024, 11:00 AM
   let formattedDate;
@@ -74,7 +74,6 @@ const TodoCard = ({
   const navigate = useNavigate();
 
   const handleEditClick = (id) => {
-    console.log(id);
     navigate(`/todo/edit/${id}`);
     // user clicks on edit button, handleEditClick function fires
     // navigates back to /add/todos/:id

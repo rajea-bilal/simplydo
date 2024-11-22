@@ -42,9 +42,6 @@ const Home = () => {
     navigate('/todo/add');
   };
 
-  useEffect(() => {
-    handlePowerMode();
-  }, [todoArray]);
   const handlePowerMode = () => {
     //Can use the power mode feature which ads up the complexity and priority values and sorts the list from highest value to lowest.
     if (!todoArray.length) {
@@ -56,8 +53,8 @@ const Home = () => {
     let powerTodo;
     let highestImportance = 0;
     for (let i = 0; i < todoArray.length; i++) {
-      let priority = parseInt(todoArray[i].priorityLevel.priority);
-      let complexity = parseInt(todoArray[i].complexityLevel.complexity);
+      let priority = parseInt(todoArray[i]?.priorityLevel?.priority);
+      let complexity = parseInt(todoArray[i]?.complexityLevel?.complexity);
 
       if (priority + complexity > highestImportance) {
         highestImportance = priority + complexity;

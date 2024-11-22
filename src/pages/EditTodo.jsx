@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -43,48 +43,46 @@ const EditTodo = () => {
     Array.from({ length: 10 }, (_, index) => ({
       name: `${index + 1}`,
       value: `priority${index + 1}`,
-      selected: displayingTodo?.priorityLevel.priority === `${index + 1}`,
+      selected: displayingTodo?.priorityLevel?.priority === `${index + 1}`,
     }))
   );
   const [priorityObj, setPriorityObj] = useState({
-    priority: displayingTodo.priorityLevel.priority,
-    value: displayingTodo.priorityLevel.value,
+    priority: displayingTodo.priorityLevel?.priority,
+    value: displayingTodo.priorityLevel?.value,
   });
 
   const [complexityObj, setComplexityObj] = useState({
-    complexity: displayingTodo.complexityLevel.complexity,
-    value: displayingTodo.complexityLevel.value,
+    complexity: displayingTodo.complexityLevel?.complexity,
+    value: displayingTodo.complexityLevel?.value,
   });
 
   const [complexityArray, setComplexityArray] = useState(
     Array.from({ length: 10 }, (_, index) => ({
       name: `${index + 1}`,
       value: `complexity${index + 1}`,
-      selected: displayingTodo?.complexityLevel.complexity === `${index + 1}`,
+      selected: displayingTodo?.complexityLevel?.complexity === `${index + 1}`,
     }))
   );
 
   // manage the level chosen from priority and complexity
   const handleLevel = (name, value) => {
-    console.log('name', name, 'value', value);
     const isPriority = priorityArray.some(
       (priority) => priority.value === value
     );
     if (isPriority) {
-      const updatedArray = priorityArray.map((priority) =>
-        priority.name === name
-          ? { ...priority, selected: !priority.selected }
-          : { ...priority, selected: false }
-      );
-      setPriorityArray(updatedArray);
+      const updatedPriorityArray = priorityArray.map((priority) => ({
+        ...priority,
+        selected: priority.name === name,
+      }));
+
+      setPriorityArray(updatedPriorityArray);
       setPriorityObj({ priority: name, value: value });
     } else {
-      const updatedArray = complexityArray.map((complexity) =>
-        complexity.name === name
-          ? { ...complexity, selected: !complexity.selected }
-          : { ...complexity, selected: false }
-      );
-      setComplexityArray(updatedArray);
+      const updatedComplexityArray = complexityArray.map((complexity) => ({
+        ...complexity,
+        selected: complexity.name === name,
+      }));
+      setComplexityArray(updatedComplexityArray);
       setComplexityObj({ complexity: name, value: value });
     }
   };
@@ -105,7 +103,7 @@ const EditTodo = () => {
       priorityLevel: priorityObj,
       complexityLevel: complexityObj,
     };
-    console.log('todo edited in edit page', todo);
+
     handleEditTask(todo.id, todo);
     navigate('/');
   };
@@ -115,7 +113,6 @@ const EditTodo = () => {
     displayingTodo?.complexityLevel.complexity
   );
 
-  console.log('priorityObj', priorityObj.priority);
   const parentForm = useForm({
     resolver: zodResolver(parentSchema),
     defaultValues: {
