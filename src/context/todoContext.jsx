@@ -121,11 +121,7 @@ export const TodoProvider = ({ children }) => {
   // handle Sorting functionality
   const handleSortFunction = (value) => {
     if (value === 'default') {
-      const defaultOrdered = [...todoArray].sort((a, b) =>
-        compareAsc(a.createdAt, b.createdAt)
-      );
-      // console.log(defaultOrdered);
-      setTodoArray(defaultOrdered);
+      setTodoArray([...originalTodoArray]);
     } else if (value === 'aToZ') {
       const alphabeticallyOrdered = [...todoArray].sort((a, b) =>
         a.name.localeCompare(b.name)
@@ -184,6 +180,14 @@ export const TodoProvider = ({ children }) => {
       setTodoArray(leastUrgentOrdered);
     }
   };
+
+  useEffect(() => {
+    const sortedOriginal = [...todoArray].sort((a, b) =>
+      compareAsc(a.createdAt, b.createdAt)
+    );
+    setOriginalTodoArray(sortedOriginal);
+    setTodoArray(sortedOriginal);
+  }, []);
 
   // handle Tagging functionality
   const getTotalTags = () => {
