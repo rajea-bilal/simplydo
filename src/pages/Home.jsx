@@ -49,7 +49,6 @@ const Home = () => {
       return;
     }
 
-    console.log('todoArray', todoArray);
     let powerTodo;
     let highestImportance = 0;
     for (let i = 0; i < todoArray.length; i++) {
@@ -65,6 +64,10 @@ const Home = () => {
 
     setPowerTodoItem(powerTodo || null);
   };
+
+  useEffect(() => {
+    handlePowerMode();
+  }, [todoArray]);
 
   return (
     <div className="mb-[5rem] relative">
